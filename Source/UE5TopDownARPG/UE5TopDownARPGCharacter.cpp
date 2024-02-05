@@ -202,6 +202,9 @@ void AUE5TopDownARPGCharacter::GainSouls(int SoulsGranted)
 { 
 	UE_LOG(LogUE5TopDownARPG, Log, TEXT("Souls Before %f After %f"), Souls, Souls+SoulsGranted);
 	Souls += SoulsGranted;
+
+	if (Souls < 0) Souls = 0;
+
 	if (IsValid(SoulsWidget))
 	{
 		SoulsWidget->SetSouls(Souls);
